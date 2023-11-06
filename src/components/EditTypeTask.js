@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BaseUrl } from "./Path";
 
-function Task() {
+function EditTypeTask() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [task, settask] = useState({
@@ -11,7 +11,7 @@ function Task() {
     name: "",
   });
   useEffect(() => {
-    axios.get(BaseUrl + "tasks/" + id).then((res) => settask(res.data));
+    axios.get(BaseUrl + "typetask/" + id).then((res) => settask(res.data));
   }, []);
 
   function do_change(params) {
@@ -21,10 +21,10 @@ function Task() {
   function do_update(params) {
     params.preventDefault();
     axios
-      .put(BaseUrl + "tasks/" + id + "/", task)
+      .put(BaseUrl + "typetask/" + id + "/", task)
       .then((res) => {
         console.log(res.data);
-        navigate("/tasks/");
+        navigate("/typetask/");
       })
       .catch((e) => {});
   }
@@ -33,8 +33,8 @@ function Task() {
     const comfirm = window.confirm("Would you like to delete?!");
     if (comfirm) {
       axios
-        .delete(BaseUrl + "tasks/" + id)
-        .then(navigate("/tasks/"))
+        .delete(BaseUrl + "typetask/" + id)
+        .then(navigate("/typetask/"))
         .catch((e) => {});
     }
   }
@@ -73,7 +73,7 @@ function Task() {
           className="bg-red-500 p-2 rounded-lg"
           onClick={task_delete}
         />
-        <Link to={"/tasks/"}>
+        <Link to={"/typetask/"}>
           <input
             type="button"
             value="🢀 Go to back"
@@ -87,4 +87,4 @@ function Task() {
   );
 }
 
-export default Task;
+export default EditTypeTask;
