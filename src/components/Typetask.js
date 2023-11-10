@@ -21,7 +21,7 @@ function Typetask() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(BaseUrl + "typetask/")
+      .get("https://backend-jet-nine.vercel.app/typetask/")
       .then((res) => {
         settasks(res.data);
         const take_id = res.data.map((e) => e.id);

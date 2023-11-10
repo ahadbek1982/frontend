@@ -1,1 +1,1 @@
-export const BaseUrl = "https://backend-sqlite-brown.vercel.app/";
+export const BaseUrl = "https://backend-jet-nine.vercel.app/";
