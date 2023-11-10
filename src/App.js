@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Users from "./components/Users";
 import Headers from "./components/Headers";
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Users />}></Route>
           <Route path="/typetask" element={<Typetask />}></Route>
-          <Route path="/typetask/:id" element={<Task />}></Route>
+          <Route path="/typetask/:id" element={<Typetask />}></Route>
           <Route path="/dash" element={<Dashbord />}></Route>
         </Routes>
       </Headers>
